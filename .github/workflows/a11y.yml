@@ -10,16 +10,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-    
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '12.x'
     - name: update apt
       run: sudo apt update -y
     - name: Install wget
@@ -51,7 +46,7 @@ jobs:
     - name: Check chrome driver
       run: which chromedriver
     - name: install dependencies
-      run: npm i
+      run: npm ci
     - name: run Linter
       run: npm run code-sanity
     - name: build components
