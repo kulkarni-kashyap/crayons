@@ -52,6 +52,8 @@ jobs:
       run: which chromedriver
     - name: install dependencies
       run: npm i
+    - name: run Linter
+      run: npm run code-sanity
     - name: build components
       run: npm run build:components
     - name: install conduct-a11y-audit
